@@ -10,11 +10,13 @@
 | vue-router | > 2.0 |
 | vuex | > 2.0 |
 
+具体开发细节参考文章 [Laravel + Vue 开发单页应用](https://flyerboy.github.io/2016/12/23/laravel_vue/)
+
 
 # 安装
 首先从 `github` 克隆项目到本地
 ```
-git clone   laravel-vue
+git clone https://github.com/Flyerboy/laravel-vue laravel-vue
 ```
 
 安装 Laravel 开发依赖
