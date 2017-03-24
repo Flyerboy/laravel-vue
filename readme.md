@@ -22,6 +22,7 @@ git clone https://github.com/Flyerboy/laravel-vue laravel-vue
 安装 Laravel 开发依赖
 ```
 composer install
+composer dump-autoload  // 生成自动加载文件
 ```
 
 安装前端依赖
