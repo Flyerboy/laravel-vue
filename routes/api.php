@@ -13,13 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:api');
+});
 
-// 路由配置
 Route::get('/news', 'NewsController@index');
-Route::get('/newslist', 'NewsController@getList');
-Route::get('/newsdetail/{id}', 'NewsController@show');
-
-
+Route::get('/news/recommend', 'NewsController@recommend');
+Route::get('/news/{id}', 'NewsController@show');

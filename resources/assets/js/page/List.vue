@@ -1,12 +1,14 @@
 <template>
-    <div>
-        <h3>列表信息</h3>
+    <div class="panel panel-default">
+        <div class="panel-heading">新闻列表</div>
         <ul class="list-group">
             <li class="list-group-item"
                 v-for="row in lists">
                 <router-link :to="{path:'/detail/' + row.id}">
+                    <span class="label label-success" v-if="row.is_recommend">推荐</span>
                     {{ row.title }}
                 </router-link>
+                <span class="pull-right">{{ row.created }}</span>
             </li>
         </ul>
     </div>
@@ -18,11 +20,11 @@ export default({
         lists: state => state.news.lists
     }),
     created() {
-        this.GETLISTS();
+        this.getNewsLists();
     },
     methods: {
         ...mapActions([
-            'GETLISTS'
+            'getNewsLists'
         ])
     }
 });

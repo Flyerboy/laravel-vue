@@ -6,22 +6,31 @@ use App\News;
 
 class NewsController extends Controller
 {
+    /**
+     * 推荐列表
+     */
+    public function recommend()
+    {
+        $list = News::where('is_recommend', 1)->get();
+        foreach ($list as $key => $value) {
+            $list[$key]->created = $list[$key]->created_at->diffForHumans();
+        }
+        return $list;
+    }
+    
+
 	/**
-	 * 首页推荐
+	 * 新闻列表
 	 */
     public function index()
     {
-    	return News::where('is_recommend', 1)->get();
+    	$list = News::get();
+        foreach ($list as $key => $value) {
+            $list[$key]->created = $list[$key]->created_at->diffForHumans();
+        }
+        return $list;
     }
-
-    /**
-     * 新闻列表
-     */
-    public function getList()
-    {
-    	return News::get();
-    }
-
+    
     /**
      * 新闻详情
      */

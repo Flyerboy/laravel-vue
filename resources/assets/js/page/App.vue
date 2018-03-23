@@ -1,15 +1,15 @@
 <template>
-    <div>
-        <h3>首页推荐</h3>
+    <div class="panel panel-default">
+        <div class="panel-heading">新闻推荐
+            <router-link to="/list" class="pull-right">更多</router-link>
+        </div>
         <ul class="list-group">
             <li class="list-group-item"
                 v-for="row in recommend">
                 <router-link :to="{path:'/detail/' + row.id}">
                     {{ row.title }}
                 </router-link>
-                <li class="list-group-item">
-                    <router-link to="/list">更多</router-link>
-                </li>
+                <span class="pull-right">{{ row.created }}</span>
             </li>
         </ul>
     </div>
@@ -23,12 +23,12 @@ export default({
     }),
     created() {
         // 获取推荐列表
-        this.GETRECOMMEND();
+        this.getNewsRecommend();
     },
     methods: {
         // 映射 vuex 对象上的方法
         ...mapActions([
-            'GETRECOMMEND'
+            'getNewsRecommend'
         ])
     }
 });

@@ -1,14 +1,14 @@
 import api from '../api';
 export default{
     state: {
-        recommend: [],  // 存储推荐列表
-        lists: [],  // 存储列表
-        detail: {}  // 存储详情
+        recommend: [], // 推荐
+        lists: [],  // 列表
+        detail: {}  // 详情
     },
     mutations: {
         // 注意，这里可以设置 state 属性，但是不能异步调用，异步操作写到 actions 中
-        SETRECOMMEND(state, recommend) {
-            state.recommend = recommend;
+        SETRECOMMEND(state, lists) {
+            state.recommend = lists;
         },
         SETLISTS(state, lists) {
             state.lists = lists;
@@ -18,21 +18,19 @@ export default{
         }
     },
     actions: {
-        GETDETAIL({commit}, id) {
+        getNewsDetail({commit}, id) {
             // 获取详情，并调用 mutations 设置 detail
             api.getNewsDetail(id).then(function(res) {
                 commit('SETDETAIL', res.data);
                 document.body.scrollTop = 0;
             });
         },
-        GETRECOMMEND({commit}) {
-            // 获取推荐，并调用 mutations 设置 recommend
+        getNewsRecommend({commit}) {
             api.getNewsRecommend().then(function(res) {
                 commit('SETRECOMMEND', res.data);
             });
         },
-        GETLISTS({commit}) {
-            // 获取列表，并调用 mutations 设置 lists
+        getNewsLists({commit}) {
             api.getNewsLists().then(function(res) {
                 commit('SETLISTS', res.data);
             });

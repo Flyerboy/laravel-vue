@@ -4,13 +4,16 @@
 
 | 软件包 | 版本 |
 | --- | --- |
-| Laravel | 5.3 |
-| Vue | >2.0 |
-| vue-resource | > 1.0 |
-| vue-router | > 2.0 |
-| vuex | > 2.0 |
+| Laravel | 5.5 |
+| Vue | > 2.5.7 |
+| axios | > 0.17 |
+| vue-router | > 3.0.1 |
+| vuex | > 3.0.1 |
 
-具体开发细节参考文章 [Laravel + Vue 开发单页应用](https://flyerboy.github.io/2016/12/23/laravel_vue/)
+
+> 如果你使用的是 laravel5.3 , 请切换到 laravel5.3 分支
+
+具体开发细节参考文章 [Laravel + Vue 开发单页应用](https://flyerboy.github.io/2018/03/22/laravel_vue_v2/)
 
 
 # 安装
@@ -22,7 +25,6 @@ git clone https://github.com/Flyerboy/laravel-vue laravel-vue
 安装 Laravel 开发依赖
 ```
 composer install
-composer dump-autoload  // 生成自动加载文件
 ```
 
 安装前端依赖
@@ -39,9 +41,14 @@ php artisan db:seed
 
 # 运行 
 ```
-gulp  // 打包前端资源
+npm run prod
 php artisan serve // 开启 web 服务
+打开浏览器访问 http://localhost:8000 查看效果
 ```
 
-打开浏览器访问 http://localhost:8000 查看效果
-
+# 开发模式
+```
+npm run watch
+php artisan serve // 开启 web 服务
+打开浏览器访问 http://localhost:3000 查看效果
+```
