@@ -30,6 +30,12 @@ export default({
         var id = this.$route.params.id;
         this.getNewsDetail(id);
     },
+    // 响应路由参数变化，适用于 2.2 版本及以上，之前版本必须监听 $router 对象的变化来实现
+    beforeRouteUpdate(to, from, next) {
+        var id = to.params.id;
+        this.getNewsDetail(id);
+        next();
+    },
     methods: {
         ...mapActions([
             'getNewsDetail'

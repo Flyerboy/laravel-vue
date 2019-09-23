@@ -32,6 +32,10 @@ composer install
 npm install
 ```
 
+创建数据表
+```
+php artisan migrate
+```
 
 填充测试数据
 ```
